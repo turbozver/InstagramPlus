@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instagram Plus</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <main class="popup" id="mainView">
+        <header>
+            <button type="button" id="settingsBtn" class="icon-button" title="Settings" aria-label="Settings">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" stroke="currentColor" stroke-width="2"/>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 8.92 4.6H9A1.65 1.65 0 0 0 10 3.09V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h.09a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9v.09A1.65 1.65 0 0 0 20.91 10H21a2 2 0 0 1 0 4h-.09A1.65 1.65 0 0 0 19.4 15z" stroke="currentColor" stroke-width="2"/>
+                </svg>
+            </button>
+            <h1>Instagram Plus</h1>
+            <span id="status">Enabled</span>
+        </header>
+
+        <section class="card">
+            <label class="setting-row">
+                <span>
+                    <strong>Decrease volume</strong>
+                    <small>Apply custom low volume to Instagram media</small>
+                </span>
+                <input type="checkbox" name="instdecreasevolume">
+            </label>
+
+            <label class="setting-field">
+                <span class="field-title">
+                    Volume
+                    <output id="volumeValue">3.5%</output>
+                </span>
+                <input type="range" name="instdecreasevolume_value" min="0" max="100" step="0.1">
+            </label>
+        </section>
+
+        <section class="card">
+            <label class="setting-row">
+                <span>
+                    <strong>Space always pauses</strong>
+                    <small>Use Space to play or pause the active media</small>
+                </span>
+                <input type="checkbox" name="instspacepause">
+            </label>
+
+            <label class="setting-row">
+                <span>
+                    <strong>M always mutes</strong>
+                    <small>Use M to mute or unmute the active media</small>
+                </span>
+                <input type="checkbox" name="instmalwaysmute">
+            </label>
+
+            <label class="setting-row">
+                <span>
+                    <strong>Video seek keys</strong>
+                    <small>Q/E, A/D, Z/C seek reels and posts</small>
+                </span>
+                <input type="checkbox" name="instaddcontrols">
+            </label>
+
+            <label class="setting-row">
+                <span>
+                    <strong>Post slide keys</strong>
+                    <small>Arrow Up/Down moves between post slides</small>
+                </span>
+                <input type="checkbox" name="instaddpostslidecontrols">
+            </label>
+
+            <label class="setting-row">
+                <span>
+                    <strong>Custom seekbar</strong>
+                    <small>Add a seekbar to reels and posts</small>
+                </span>
+                <input type="checkbox" name="instaddseekbar">
+            </label>
+        </section>
+
+        <section class="card">
+            <h2>Key bindings</h2>
+            <div class="keybind-list">
+                <label class="keybind-row">
+                    <span>Play / pause</span>
+                    <button type="button" class="keybind-button" data-bind-setting="instPauseKey"></button>
+                </label>
+                <label class="keybind-row">
+                    <span>Mute / unmute</span>
+                    <button type="button" class="keybind-button" data-bind-setting="instMuteKey"></button>
+                </label>
+                <label class="keybind-row">
+                    <span>Small back</span>
+                    <button type="button" class="keybind-button" data-bind-setting="instSeekSmallBackKey"></button>
+                </label>
+                <label class="keybind-row">
+                    <span>Small forward</span>
+                    <button type="button" class="keybind-button" data-bind-setting="instSeekSmallForwardKey"></button>
+                </label>
+                <label class="keybind-row">
+                    <span>Medium back</span>
+                    <button type="button" class="keybind-button" data-bind-setting="instSeekMediumBackKey"></button>
+                </label>
+                <label class="keybind-row">
+                    <span>Medium forward</span>
+                    <button type="button" class="keybind-button" data-bind-setting="instSeekMediumForwardKey"></button>
+                </label>
+                <label class="keybind-row">
+                    <span>Large back</span>
+                    <button type="button" class="keybind-button" data-bind-setting="instSeekLargeBackKey"></button>
+                </label>
+                <label class="keybind-row">
+                    <span>Large forward</span>
+                    <button type="button" class="keybind-button" data-bind-setting="instSeekLargeForwardKey"></button>
+                </label>
+            </div>
+
+            <h2>Seek timing (s)</h2>
+            <div class="seek-time-grid">
+                <label>
+                    <span>Small</span>
+                    <input type="number" name="instSeekSmallSeconds" min="0.01" max="60" step="0.01">
+                </label>
+                <label>
+                    <span>Medium</span>
+                    <input type="number" name="instSeekMediumSeconds" min="0.01" max="60" step="0.1">
+                </label>
+                <label>
+                    <span>Large</span>
+                    <input type="number" name="instSeekLargeSeconds" min="0.01" max="600" step="0.5">
+                </label>
+            </div>
+
+            <section class="hint">
+                <p>Click a key button, then press the replacement key or combo.</p>
+                <p>Escape cancels key capture.</p>
+            </section>
+        </section>
+    </main>
+
+    <main class="popup hidden" id="settingsView">
+        <header>
+            <button type="button" id="backBtn" class="icon-button" title="Back" aria-label="Back">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <h1>Settings</h1>
+            <span></span>
+        </header>
+
+        <section class="card">
+            <h2>About</h2>
+            <div class="settings-links">
+                <a class="link-card" href="https://github.com/turbozver/InstagramPlus" target="_blank" rel="noreferrer">
+                    <span class="link-icon github-icon" aria-hidden="true"></span>
+                    <span>
+                        <strong>GitHub</strong>
+                    </span>
+                </a>
+
+                <a class="link-card" href="mailto:turbozver24@gmail.com" target="_blank" rel="noreferrer">
+                    <span class="link-icon mail-icon" aria-hidden="true"></span>
+                    <span>
+                        <strong>Contact</strong>
+                        <small>turbozver24@gmail.com</small>
+                    </span>
+                </a>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Data</h2>
+            <div class="settings-actions">
+                <button type="button" id="importBtn">Import</button>
+                <button type="button" id="exportBtn">Export</button>
+                <button type="button" id="resetBtn" class="danger">Delete All Settings</button>
+                <input type="file" id="importFile" accept="application/json" hidden>
+            </div>
+        </section>
+    </main>
+
+    <script src="popup.js"></script>
+</body>
+</html>
