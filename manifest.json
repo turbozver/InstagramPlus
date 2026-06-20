@@ -1,7 +1,7 @@
 {
     "name": "Instagram Plus",
     "description": "Extra controls for Instagram videos, reels, stories, and posts.",
-    "version": "1.0",
+    "version": "1.1",
     "manifest_version": 3,
     "permissions": ["storage", "tabs"],
     "host_permissions": [
@@ -32,5 +32,14 @@
             "js": ["instagram.js"],
             "css": ["instagram.css"]
         }
-    ]
+    ],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "turbo@instagramplus",
+            "strict_min_version": "109.0",
+            "data_collection_permissions": {
+                "required": ["none"]
+            }
+        }
+    }
 }

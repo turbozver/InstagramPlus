@@ -338,3 +338,55 @@ input[type="number"]:focus {
     background: #291b1f;
     border-color: #5b3039;
 }
+
+.settings-micro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.settings-micro-card {
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    min-width: 0;
+    min-height: 58px;
+    padding: 7px 6px;
+    border: 1px solid var(--line, var(--border, #303441));
+    border-radius: 7px;
+    color: var(--muted, #a8adb8);
+    background: var(--panel, var(--panel-2, #17191f));
+    font-size: 10px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.settings-rate-card:hover {
+    border-color: color-mix(in srgb, var(--accent, #8b5cf6) 62%, var(--line, var(--border, #303441)));
+}
+
+.settings-rate-stars {
+    margin-top: 3px;
+    color: #ffd45a;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0;
+    transition: color 0.14s ease, transform 0.14s ease;
+}
+
+.settings-rate-card:hover .settings-rate-stars {
+    color: #ffe48a;
+    transform: translateY(-1px);
+}
+
+.settings-made-card > strong {
+    margin-top: 3px;
+    color: var(--text, #f2f3f5);
+    font-size: 11px;
+}
+
+.settings-made-card b {
+    color: #f84982;
+}

@@ -306,3 +306,10 @@ function resetSettings() {
         location.reload();
     });
 }
+
+
+document.querySelectorAll("[data-rate-link]").forEach((link) => {
+    if (navigator.userAgent.includes("Firefox")) {
+        link.href = link.dataset.firefoxUrl;
+    }
+});
